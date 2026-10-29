@@ -1,5 +1,5 @@
 pipeline {
-    agent { label params.AGENT_LABEL }
+    agent { label "${params.AGENT_LABEL}" }
     options {
         disableConcurrentBuilds()
         timeout(time: 15, unit: 'MINUTES')
