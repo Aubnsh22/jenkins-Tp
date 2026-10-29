@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#203e35">
+  <title>Campus Café — Une pause bien méritée</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; min-height: 100vh; background: #f5f0e6; color: #203e35; font-family: system-ui, sans-serif; }
+    header, main, footer { max-width: 1050px; margin: auto; padding: 28px; }
+    header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #d9decc; gap: 15px; }
+    .brand { font-weight: 800; font-size: 1.2rem; }
+    .badge { font-size: .8rem; background: #e3e9d9; padding: 8px 13px; border-radius: 30px; }
+    main { display: grid; grid-template-columns: 1.3fr 1fr; align-items: center; gap: 50px; padding-top: 70px; padding-bottom: 70px; }
+    .eyebrow { text-transform: uppercase; letter-spacing: .18em; font-size: .75rem; font-weight: 700; }
+    h1 { font-family: Georgia, serif; font-weight: 400; font-size: clamp(3rem, 7vw, 5rem); line-height: 1.05; margin: 22px 0; }
+    p { line-height: 1.7; }
+    .intro { color: #57665a; max-width: 390px; }
+    .card { background: #203e35; color: #fff9ea; border-radius: 24px; padding: 38px; box-shadow: 0 22px 50px #203e351a; }
+    .cup { font-size: 4rem; margin-bottom: 25px; }
+    .price { font-size: 3.5rem; font-weight: 700; margin: 8px 0; }
+    .price small { font-size: 1rem; font-weight: 400; }
+    a { display: block; background: #e9b56f; color: #203e35; text-align: center; border-radius: 10px; padding: 16px; font-weight: 750; text-decoration: none; margin-top: 30px; }
+    a:hover { background: #f6c98b; } a:focus-visible { outline: 3px solid white; outline-offset: 5px; }
+    .note { font-size: .8rem; opacity: .8; text-align: center; }
+    footer { border-top: 1px solid #d9decc; font-size: .8rem; color: #57665a; }
+    @media(max-width: 650px) { main { grid-template-columns: 1fr; gap: 28px; padding-top: 35px; } header { flex-wrap: wrap; } }
+  </style>
+</head>
+<body>
+  <header><span class="brand">Campus Café<span aria-hidden="true"> ·</span></span><span class="badge">Livraison n° {{ build }}</span></header>
+  <main>
+    <section><div class="eyebrow">La pause du campus</div><h1>Un café.<br>Et ça repart.</h1><p class="intro">Entre deux cours ou deux builds, prenez le temps d’une bonne pause. Votre prochain café vous attend.</p></section>
+    <section class="card" aria-label="Commander un café"><div class="cup" aria-hidden="true">☕</div><div>Le café du campus</div><div class="price">{{ prix }} <small>DH / café</small></div><p>Simple, chaleureux, prêt à partager.</p><a href="{{ url_for('commande', quantite=2) }}">Commander 2 cafés</a><p class="note">2 cafés · {{ prix * 2 }} DH · de 1 à 10 cafés par commande</p></section>
+  </main>
+  <footer>Campus Café · Atelier Jenkins · Une livraison à la fois.</footer>
+</body>
+</html>
